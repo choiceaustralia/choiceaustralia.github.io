@@ -28,17 +28,6 @@
 			"thetaLength": 3.141593
 		},
 		{
-			"uuid": "CF0409B0-347A-4743-B9EA-73C177D6F678",
-			"type": "SphereBufferGeometry",
-			"radius": 1,
-			"widthSegments": 32,
-			"heightSegments": 16,
-			"phiStart": 0,
-			"phiLength": 6.283185,
-			"thetaStart": 0,
-			"thetaLength": 3.141593
-		},
-		{
 			"uuid": "5CFCF130-C5FA-4305-98DD-E38357CA8FE6",
 			"type": "SphereBufferGeometry",
 			"radius": 1,
@@ -53,6 +42,7 @@
 		{
 			"uuid": "24AAD094-2EB8-47C9-A211-15A7552F118D",
 			"type": "MeshPhysicalMaterial",
+			"name": "Sun Shader",
 			"color": 14005886,
 			"roughness": 1,
 			"metalness": 0,
@@ -83,24 +73,9 @@
 			"morphTargets": false
 		},
 		{
-			"uuid": "22737890-5804-4645-9E83-CE6C62C7F5CF",
-			"type": "ShaderMaterial",
-			"name": "Atmosphere",
-			"side": 1,
-			"transparent": true,
-			"depthFunc": 3,
-			"depthTest": true,
-			"depthWrite": true,
-			"skinning": false,
-			"morphTargets": false,
-			"uniforms": {},
-			"vertexShader": "varying vec3 outNormal;\nvarying vec3 outViewPosition;\n\nvoid main() {\n\tgl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n\tvec4 tempViewPosition = modelViewMatrix * vec4(position, 1.0);\n\toutViewPosition = normalize(tempViewPosition.xyz - cameraPosition);\n\toutNormal = normalize(normalMatrix * normal);\n}",
-			"fragmentShader": "varying vec3 outNormal;\nvarying vec3 outViewPosition;\n\nvoid main() {\n\t// From Chrome Experiment WebGL Globe\n \tfloat incidence = pow( 0.5 - dot(outNormal, outViewPosition), 12.0);\n\tvec3 diffuse = vec3(0.1, 0.4, 0.8);\n\tgl_FragColor = vec4( diffuse * vec3(incidence), incidence);\n}"
-		},
-		{
 			"uuid": "93A2D3BA-CCB7-4ABA-A5A5-F5EE7A747B05",
 			"type": "MeshStandardMaterial",
-			"name": "Atmosphere_Static",
+			"name": "CO2 Shader",
 			"color": 10412543,
 			"roughness": 1,
 			"metalness": 0,
@@ -158,7 +133,7 @@
 			{
 				"uuid": "69ABE27A-882F-458C-8579-55419E5FA985",
 				"type": "Mesh",
-				"name": "Sun_Dummy",
+				"name": "Sun",
 				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
 				"geometry": "4E9DA37F-E95C-40D6-8308-1956DBB8D689",
 				"material": "24AAD094-2EB8-47C9-A211-15A7552F118D",
@@ -197,15 +172,6 @@
 				"material": "5B66C64A-5B1D-474A-B94B-B73314930E71",
 				"children": [
 					{
-						"uuid": "F36E7063-9022-44DF-9C28-B43CDC7329FC",
-						"type": "Mesh",
-						"name": "CO2",
-						"visible": false,
-						"matrix": [1.2,0,0,0,0,1.2,0,0,0,0,1.2,0,0,0,0,1],
-						"geometry": "CF0409B0-347A-4743-B9EA-73C177D6F678",
-						"material": "22737890-5804-4645-9E83-CE6C62C7F5CF"
-					},
-					{
 						"uuid": "51103E4E-1965-4F92-86E1-394A9F79248E",
 						"type": "Mesh",
 						"name": "CO2",
@@ -217,7 +183,7 @@
 			{
 				"uuid": "A0D980D1-A7A8-4E72-B8F7-20B091CD2063",
 				"type": "AmbientLight",
-				"name": "Global Ambience",
+				"name": "Ambience",
 				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
 				"color": 16777215,
 				"intensity": 0.6
