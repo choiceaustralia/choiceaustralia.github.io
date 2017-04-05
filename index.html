@@ -15,19 +15,33 @@
   <script src="scripts/main.js"></script>
 
   <header id="main-header">
-   <div>
-    <p>C0<sub>2</sub> Over 400 Million Years</p>
-   </div>
+   <div class="dv-header-title">
+     <span id="dv-400" class="p-title-shown">
+       Over the last 400 million years the sun has been getting hotter
+     </span>
+     <span id="dv-300" class="p-title-hidden">
+       but total incoming solar radiation barely changed...
+     </span>
+     <span id="dv-200" class="p-title-hidden">
+       Falling CO<sub>2</sub> kept the balance.
+     </span>
+     <span id="dv-100" class="p-title-hidden">
+       but now we are facing an unprecedented situation
+     </span>
+     <span id="dv-000" class="p-title-hidden">
+       due to human action, CO<sub>2</sub> is spiking. The balance has shifted
+     </span>
+    </div>
   </header>
 
   <div class="main-content">
-   <div id="commentary"></div>
    <div id="graphics"></div>
    <div id="inputs">
     <input id="time-slider" type="range" min="-400" max="0" value="-400">
    </div>
   </div>
 
+  <script src="scripts/commentary.js"></script>
   <footer>
     <div class="sg-footer">
       <ul>
