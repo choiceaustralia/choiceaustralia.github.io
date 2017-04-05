@@ -27,11 +27,12 @@ window.onload = () => {
     let camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 1, 10000);
     let controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-    // camera.position.set(5.1, 0, 15);
     camera.position.set(0, 0, 15);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio || 1);
     container.appendChild(renderer.domElement);
+    controls.minDistance = 10;
+    controls.maxDistance = 2000;
 
     let earth, sun, co2, sunlight, sunBaseColor;
 
@@ -56,6 +57,10 @@ window.onload = () => {
         co2 = scene.getObjectByName('CO2');
         sunlight = scene.getObjectByName('Sunlight');
         sunBaseColor = sun.material.color.clone();
+
+        co2.material = THREEx.createAtmosphereMaterial();
+        co2.material.uniforms.glowColor.value = new THREE.Color('cyan');
+
         update();
     }
 
@@ -76,9 +81,10 @@ window.onload = () => {
 
     function setCo2 (val) {
         let co2Size = -(val - minYear) / (maxYear - minYear) * 0.25 + 1.35;
-        let co2Opacity = -(val - minYear) / (maxYear - minYear) * 0.2 + 0.35;
+        let co2Coefficient = -(val - minYear) / (maxYear - minYear) * 0.5 + 1.0;
         co2.scale.set(co2Size, co2Size, co2Size);
-        co2.material.opacity = co2Opacity;
+        co2.material.uniforms.coeficient.value = co2Coefficient;
+        // co2.material.uniforms.power.value = 1.4
     }
 
     window.setLuminance = setLuminance;
