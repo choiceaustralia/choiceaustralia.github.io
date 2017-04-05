@@ -24,7 +24,7 @@ window.onload = () => {
     let renderer = new THREE.WebGLRenderer({ antialias: true });
     let loader = new THREE.ObjectLoader();
     let scene = new THREE.Scene();
-    let camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 1, 1000);
+    let camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 1, 10000);
     let controls = new THREE.OrbitControls(camera, renderer.domElement);
 
     // camera.position.set(5.1, 0, 15);
@@ -68,7 +68,7 @@ window.onload = () => {
     });
 
     function setLuminance (val) {
-        let colorScale = (val - minYear) / (maxYear - minYear) * 0.5 + 0.5;
+        let colorScale = (val - minYear) / (maxYear - minYear) * 1 + 1;
         let glowScale = (val - minYear) / (maxYear - minYear) * 3 + 3;
         sunglow.scale.set(glowScale, glowScale, glowScale);
         sun.material.color.copy(sunBaseColor).multiplyScalar(colorScale);
