@@ -35,13 +35,14 @@ body {
 #time-slider {
   height: 200px:
   width: 100%;
-  
+  background-image: url("../images/slider-background.png");
 }
 
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
   margin: 18px 0;
   width: 100%;              /* Specific width is required for Firefox. */
+  background: transparent;
 }
 
 input[type=range]:focus {
@@ -71,7 +72,6 @@ input[type=range]::-webkit-slider-thumb {
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #367ebd;
-  background-image: url("../images/slider-background.png");
 }
 input[type=range]::-moz-range-track {
   width: 100%;
@@ -138,7 +138,7 @@ footer {
   width: 100%;
   border-top: 1px solid #e5e5e5;
   overflow: hidden;
-  background-color: #F2F2F2;
+  background-color: black;
 }
 
 footer ul {
@@ -149,14 +149,14 @@ footer ul {
 }
 
 footer ul li {
-  color: #737373;
+  color: white;
   display: inline;
   padding: 0;
   padding-right: 1.5em;
 }
 
 footer a {
-  color: #737373;
+  color: white;
   text-decoration: none;
 }
 
