@@ -25,8 +25,10 @@ window.onload = () => {
     let loader = new THREE.ObjectLoader();
     let scene = new THREE.Scene();
     let camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 1, 1000);
+    let controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-    camera.position.set(5.1, 0, 15);
+    // camera.position.set(5.1, 0, 15);
+    camera.position.set(0, 0, 15);
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio || 1);
     container.appendChild(renderer.domElement);
