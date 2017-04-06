@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-body {
+html, body {
   margin: 0;
   background-color: black;
-  height: 100%;
+  min-height: 100%;
 }
 
-#main-header {
+#content-header {
   background: black none repeat scroll 0 0;
   color: white;
   float: none;
@@ -22,8 +22,18 @@ body {
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  font-size: 24px;
+  font-size: 14;
   width: 100%;
+}
+
+@media (min-width: 600px) {
+  .dv-header-title {
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 18;
+    width: 100%;
+  }
 }
 
 .p-title-shown {
@@ -40,23 +50,34 @@ body {
   display: none;
 }
 
-#commentary {
-  text-align: center;
-  vertical-align: middle;
-  overflow: hidden;
-  font-size: 24px;
-  width: 70%;
+.main-content {
+ height: calc(100% - 50px); 
+ background-color: black;
 }
 
 #graphics {
   overflow: hidden;
   width: 100%;
-  height: 600px;  
+  height: 400px;  
   background: black;
 }
 
+@media (min-height: 600px) {
+  #graphics {
+    height: 800px;
+    width: 100%;
+    overflow: hidden;
+    background: black;
+  }
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
 #time-slider {
-  height: 200px:
+  height: 100px:
   width: 100%;
   background-image: url("../images/slider-background.png");
 }
@@ -143,7 +164,7 @@ input[type=range]::-ms-thumb {
   height: 36px;
   width: 16px;
   border-radius: 3px;
-  background: #ffffff;
+  background: #fff;
   cursor: pointer;
 }
 input[type=range]:focus::-ms-fill-lower {
@@ -159,7 +180,7 @@ footer {
   bottom: 0;
   height: 35px;
   width: 100%;
-  border-top: 1px solid #e5e5e5;
+  border: 0;
   overflow: hidden;
   background-color: black;
 }
