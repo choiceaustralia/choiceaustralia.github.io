@@ -28,7 +28,7 @@ window.onload = () => {
     let controls = new THREE.OrbitControls(camera, renderer.domElement);
 
     camera.position.set(0, 0, 15);
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(container.clientWidth, container.clientHeight, false);
     renderer.setPixelRatio(window.devicePixelRatio || 1);
     container.appendChild(renderer.domElement);
     controls.minDistance = 10;
@@ -44,7 +44,7 @@ window.onload = () => {
     }
 
     function onResize () {
-        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setSize(container.clientWidth, container.clientHeight, false);
         camera.aspect = container.clientWidth / container.clientHeight;
         camera.updateProjectionMatrix();
     }
