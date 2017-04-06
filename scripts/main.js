@@ -30,6 +30,8 @@ window.onload = () => {
     camera.position.set(0, 0, 15);
     renderer.setSize(container.clientWidth, container.clientHeight, false);
     renderer.setPixelRatio(window.devicePixelRatio || 1);
+    renderer.domElement.style.width = '100%'; //temp can set with CSS
+    renderer.domElement.style.height = '100%'; //temp can set with CSS
     container.appendChild(renderer.domElement);
     controls.minDistance = 10;
     controls.maxDistance = 2000;
